@@ -74,20 +74,6 @@ class Main extends Component {
     this.interval = setInterval(() => this.tick(), 1000);
   }
 
-  // get refreshData() {
-  //   const { seconds, resetMethod } = this.props;
-  //   if(seconds === 31) {
-  //     this.setState({ seconds: 0 });
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-
-  // componentDidUpdate() {
-  //   const shouldRefresh = this.refreshData;
-  //   console.log(shouldRefresh, 'shouldRefresh');
-  // }
 
   handleOnEnter = async (e) => {
     if(e.key === 'Enter') {

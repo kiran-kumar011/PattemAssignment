@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import Input from './Input';
+import React from 'react';
 
 
 const Article = () => {
@@ -20,6 +19,27 @@ const Article = () => {
 	)
 }
 
+const Input = () => {
+
+	return(
+		<div>
+			<div className='timer'>
+				<p>Auto refresh in { 0 } seconds</p>
+			</div>
+			<div className='input-wrapper-border'>
+				<div  className='input-wrapper'>
+					<input 
+						name='query' 
+						type='text'
+					/>
+					<i className="fas fa-search"/>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+
 
 const Static = (props) => {
 	let arr = [];
@@ -36,7 +56,6 @@ const Static = (props) => {
 					arr.map((itm, ind) => (<Article key={ind} />)) : null
 				}
 			</div>
-			
 		</div>
 	)
 }

@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Article = (props) => {
-	// console.log(props.article, 'props from article component');
-	const {urlToImage, author, title, description } = props.article;
+	const {urlToImage, author, title } = props.article;
 
 	return(
 		<div className='article'>

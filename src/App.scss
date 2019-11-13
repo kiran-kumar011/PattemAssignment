@@ -142,8 +142,17 @@ h1 {
   display: grid;
   grid-template-columns: 6rem auto;
   margin: 1rem 0;
+  box-sizing: border-box;
+
   // background-color: rgba(0,128,0,0.3);
+  // box-shadow: 0 0 0.04rem 0.01rem rgba(0,0,0,0.3);
+  // border: 1px solid transparent;
+  // padding: 1rem;
 }
+
+// .article:hover {
+//   border: 1px solid rgba(0,128,0,0.3);
+// }
 
 .image-wrapper {
   width: 5rem;
