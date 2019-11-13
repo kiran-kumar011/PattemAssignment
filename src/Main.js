@@ -46,7 +46,7 @@ class Main extends Component {
           errorMessage = 'No results Found!';
         }
         
-        this.setState({ articles: articlesArr , errorMessage,  resultsCount: totalResults, query: '' });
+        this.setState({ articles: articlesArr , errorMessage,  resultsCount: totalResults });
       } else {
         this.setState({ errorMessage: 'Empty Search Term', articles: []});
       }
