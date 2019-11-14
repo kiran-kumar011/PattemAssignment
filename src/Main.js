@@ -112,6 +112,7 @@ class Main extends Component {
           errorMessage = 'No results Found!';
         }
         
+
         this.setState(state => ({
            articles: articlesArr , errorMessage,  resultsCount: totalResults
         }));
