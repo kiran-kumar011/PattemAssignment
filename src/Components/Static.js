@@ -42,10 +42,7 @@ const Input = () => {
 
 
 const Static = (props) => {
-	let arr = [];
-	for(let i=0; i<props.limit; i++) {
-		arr.push(i);
-	}
+	let arr = Array.from({ length: props.limit });
 
 	return(
 		<div className='container'>

@@ -1,9 +1,12 @@
 import React from 'react';
 import Article from './Article';
+import Static from './Static';
+import Loader from './Loader';
 
 const Home = (props) => {
 
-	const { articles, seconds, change, query, enter, onclick, error } = props;
+	const { articles, seconds, change, query, enter, onclick, error, isLoading } = props;
+	console.log(isLoading, 'isLoading')
 	return(
 		<div className='container'>
 			<div className='timer'>
@@ -21,16 +24,20 @@ const Home = (props) => {
 					<i onClick={ onclick } className="fas fa-search"/>
 				</div>
 			</div>
-			<div>
-				<h1>{error}</h1>
-			</div>
 			<div className='articles-wrapper'>
 				{
 					articles.length ?
-					articles.map((itm, ind) => (<Article key={ind} article={itm} />)) : null
+					articles.map((itm, ind) => (<Article key={ind} article={itm} />))
+					: 
+					null
+				}
+				{
+					isLoading ? <Loader /> : null
 				}
 			</div>
-			
+			<div>
+				<h1>{error}</h1>
+			</div>
 		</div>
 	)
 }
