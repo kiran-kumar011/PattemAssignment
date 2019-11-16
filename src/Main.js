@@ -47,21 +47,17 @@ class Main extends Component {
 
   addListener = () => {
     window.addEventListener('scroll', () => {
-        // console.log((window.innerHeight + window.scrollY), "innerHeight + scrollY", this.state.stopListener);
-          const { stopListener, articles, page, resultsCount } = this.state;
-         if (((window.innerHeight + window.scrollY) >= document.body.offsetHeight) && !stopListener && this.state.articles.length) {
-            // console.log("you're at the bottom of the page");
+      const { stopListener, articles, page, resultsCount } = this.state;
+      if (((window.innerHeight + window.scrollY) >= document.body.offsetHeight) && !stopListener && articles.length && (articles.length < resultsCount - 1)) {
+        
+        const num = (articles.length < resultsCount - 1) ? this.state.page : page + 1;
 
-            // console.log(page, 'before');
-            const num = (articles.length < resultsCount - 1) ? this.state.page : page + 1;
-
-            // console.log(page, 'after');
-            this.setState({ isLoading: true, page: num }, () => {
-              this.loadMoreData();
-              this.stopListener();
-            });
-         }
-      });
+        this.setState({ isLoading: true, page: num }, () => {
+          this.loadMoreData();
+          this.stopListener();
+        });
+      }
+    });
   }
 
 
@@ -70,11 +66,11 @@ class Main extends Component {
       let { limit, page, query, resultsCount } = this.state;
       let errorMessage, articlesArr, arr;
       if(Math.floor(resultsCount/limit)+1 > page+1) {
-        const response = await axios.get(`https://newsapi.org/v2/everything?q=${query}&apiKey=363d26dd3d664d199ca63adc371e22aa&pageSize=${limit}&page=${page + 1}`);
+        const response = await axios.get(`https://newsapi.org/v2/everything?q=${query}&apiKey=5eddff77effb4574956c391597a288db&pageSize=${limit}&page=${page + 1}`);
         // console.log(response ,'response');
         // console.log(this.state.articles, 'state articles')
         const { totalResults, status, articles  } = response.data;
-        console.log(articles, 'articles from response');
+        // console.log(articles, 'articles from response');
         if(status === 'ok' && articles.length) {
           articlesArr = articles.map(itm => ({...itm, isClicked: false }));
           errorMessage = '';
@@ -90,7 +86,7 @@ class Main extends Component {
         this.setState(() => ({  errorMessage: 'No Results Found', isLoading: false }));
       }
     } catch(err) {
-      console.log(err);
+      // console.log(err);
       this.setState(() => ({ errorMessage: 'Showed all the result', isLoading: false }));
     }
   }
@@ -162,7 +158,6 @@ class Main extends Component {
   render() {
     const { articles, query, errorMessage, limit, seconds, isLoading } = this.state;
     const { resetMethod } = this.props;
-    console.log(articles, 'articles');
     return (
       <div className="App">
         <header>Latest News Search</header>
