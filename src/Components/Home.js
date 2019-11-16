@@ -6,7 +6,6 @@ import Loader from './Loader';
 const Home = (props) => {
 
 	const { articles, seconds, change, query, enter, onclick, error, isLoading } = props;
-	console.log(isLoading, 'isLoading')
 	return(
 		<div className='container'>
 			<div className='timer'>
