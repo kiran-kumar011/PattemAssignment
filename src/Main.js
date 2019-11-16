@@ -97,7 +97,7 @@ class Main extends Component {
       let errorMessage, articlesArr;
       const string = query.trim().toLowerCase();
       if(string) {
-        const response = await axios.get(`https://newsapi.org/v2/everything?q=${query}&apiKey=363d26dd3d664d199ca63adc371e22aa&pageSize=${limit}&page=${page}`);
+        const response = await axios.get(`https://newsapi.org/v2/everything?q=${query}&apiKey=5eddff77effb4574956c391597a288db&pageSize=${limit}&page=${page}`);
 
         const { totalResults, status, articles  } = response.data;
         if(status === 'ok' && totalResults !== 0) {
